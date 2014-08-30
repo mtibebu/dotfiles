@@ -4,6 +4,7 @@
 alias reload='source ~/bin/dotfiles/bash/aliases'
 alias ea='mate -w ~/bin/dotfiles/bash/aliases && reload' # Edit aliases
 alias ee="mate ~/bin/dotfiles/bash/env"
+alias open="cygstart"
 
 # Quicker cd
 alias cg='cd /Library/Ruby/Gems/1.8/gems/'
