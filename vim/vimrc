@@ -40,13 +40,22 @@ set nobackup                      " Don't make a backup before overwriting a fil
 set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
+set binary			 " Don't add empty new lines at the end of files
+set noeol
+
+syntax on
+
 " UNCOMMENT TO USE
-"set tabstop=2                    " Global tab width.
-"set shiftwidth=2                 " And again, related.
-"set expandtab                    " Use spaces instead of tabs
+set tabstop=2                    " Global tab width.
+set shiftwidth=2                 " And again, related.
+set expandtab                    " Use spaces instead of tabs
 
 set laststatus=2                  " Show the status line all the time
+
+set mouse=a			" Enable mouse in all modes
 " Useful status information at bottom of screen
+
+set shortmess=atI		" Don't show the intro message when starting Vim
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 " Or use vividchalk
@@ -64,7 +73,10 @@ map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
 " Uncomment to use Jamis Buck's file opening plugin
-map <Leader>ff :FuzzyFinderTextMate<Enter>
+map <Leader>ff :FuzzyFinderTextMate<cr>
+
+"Lusty buffer explorer mapping
+"map <leader>be :LustyBufferExplorer<cr>
 
 " Controversial...swap colon and semicolon for easier commands
 "nnoremap ; :
@@ -74,8 +86,8 @@ map <Leader>ff :FuzzyFinderTextMate<Enter>
 "vnoremap : ;
 
 " Automatic fold settings for specific files. Uncomment to use.
-" autocmd FileType ruby setlocal foldmethod=syntax
-" autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
+ autocmd FileType ruby setlocal foldmethod=syntax shiftwidth=2 tabstop=2
+ autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
 
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
